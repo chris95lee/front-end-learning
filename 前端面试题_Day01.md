@@ -77,8 +77,6 @@ dcotype的声明不限于“<!DOCTYPE html>" 确保浏览器按照最佳的相�
 
 - ul>li:nth-child(3n+1) 这里的n是从0开始计数。得到的3n+1可以代表第一个li，而不是0来代表第一个li
 
-- 
-
 
 
 ## 2. clientWidth、offsetWidth等属性
