@@ -29,9 +29,6 @@ HTML 4.01和XHTML 1.0在声明时需要引用DTD（strict, transitional, framese
 
 dcotype的声明不限于“<!DOCTYPE html>" 确保浏览器按照最佳的相关规范进行渲染，而不是使用“怪异模式”的渲染模式。
 
-## 3. sessionStorage和localStorage
-
-
 
 ## 4. DHTML
 
