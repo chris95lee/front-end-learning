@@ -218,9 +218,60 @@ instanceof 运算符用于检测**构造函数的 prototype 属性**是否出现
 
 ## 14. this
 
-- 在不手动改变this指向的前提下，this总是指向函数的直接调用对象
-- 如果有new关键字，this指向new出来的那个对象
-- IE中attachEvent中的this总是指向全局对象window
+```javascript
+<body>
+  <button>按钮</button>
+  <script>
+    // 1. 直接输出this指向全局对象window
+    console.log(this);
+    // 2. 全局函数是全局对象window的方法，因此this指向window
+    function fun(){
+      console.log(this);
+    }
+    fun()
+    // 3. this放在对象的方法中，指向调用这个方法的对象
+    let cat = {
+      name:'meiqiu',
+      sayName(){
+        console.log(`我是${this.name}`);
+      }
+    }
+    cat.sayName()
+    // 4. DOM对象事件中的this，指向触发事件的DOM对象
+    let btn = document.querySelector('button')
+    btn.addEventListener('click',function(){
+      console.log(this);
+    })
+    // 5. 构造函数中的this，指向new创建的对象[new的作用]
+    function Fn(){
+      this.name = 'hutao'
+    }
+    // new一个构造函数Fn，会创建对象fn。将构造函数中的this指向创建的对象
+    let fn = new Fn()
+    console.log(fn);
+    // 6. 箭头函数中的this，在哪里定义就指向谁。
+    let wife = {
+      name:'yoimiya',
+      sayName(){
+        setTimeout(function() {
+          console.log(this); // 指向window
+        }, 1000),
+        setTimeout(()=>{
+          console.log(this); // 指向wife
+        },2000)
+      }
+    }
+    wife.sayName()
+  </script>
+</body>
+```
+- 直接输出this指向全局对象window
+- 全局函数是全局对象window的方法，因此this指向window
+- this放在对象的方法中，指向调用这个方法的对象
+- DOM对象事件中的this，指向触发事件的DOM对象
+- 构造函数中的this，指向new创建的对象[new的作用]
+- 箭头函数中的this，在哪里定义就指向谁。
+- 【在不手动改变this指向的前提下，this总是指向函数的直接调用对象】
 
 ## 15. Promise和async
 
