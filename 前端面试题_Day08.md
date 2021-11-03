@@ -85,15 +85,22 @@ History 对象包含用户（在浏览器窗口中）访问过的 URL
 
 ## 11. 原型链
 
-![原型链](D:\front-end-learning\04JS高阶\JS高级\02-构造函数和原型\原型链.png)
+构造函数.prototype = 原型对象
+原型对象.constructor = 构造函数
+let 实例对象 = new 构造函数()
+实例对象.__proto__ = 原型对象
+
+原型对象也是个对象，因此实际上是Object构造函数的实例对象
+那么 原型对象.__proto__ = Object.prototype 也是一个原型对象
+但这个原型对象的__proto__是null
+也就是说这个原型对象就是根原型对象。它的constructor是Object构造函数
 
 不仅仅是ES5的构造函数，ES6的类同样可以调用prototype获得原型对象。
 
 ES6，类可以通过extends和super实现继承。
 
 ES5，需要使用原型对象实现继承。
+在实现继承时，继承构造函数.prototype = 被继承构造函数的一个实例，即new 被继承构造函数()
+而不可以是 继承构造函数.prototype = 被继承构造函数.prototype
 
-![借用原型对象继承方法](D:\front-end-learning\04JS高阶\JS高级\02-构造函数和原型\借用原型对象继承方法.png)
-
-## 12. 类、构造函数、继承【代码】
 
